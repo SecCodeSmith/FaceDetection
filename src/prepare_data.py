@@ -50,3 +50,6 @@ for index, row in df.iterrows():
 
     hog_features.append(feature_vector)
     face_positions.append([x_new, y_new, w_new, h_new])
+
+    if (index % 1000) == 0:
+        print(index)

@@ -12,9 +12,8 @@ class HOGGenerator:
         self.last_hog = self.hog.compute(image)
         return self.last_hog
 
-    def print_hog(self, image):
+    def print_hog(self):
         if self.last_hog is None:
             print("No HOG")
             return
-        hog_image = self.hog.compute(image)
-        cv2.imshow("HOG", hog_image)
+        cv2.imshow("HOG", self.last_hog)

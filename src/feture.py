@@ -9,6 +9,8 @@ class HOGGenerator:
                                      win_sigma, histogram_norm_type, l2_hys_threshold, gamma_correction, n_levels)
 
     def generate_hog(self, image):
+        if image.dtype != np.uint8:
+            image = (image * 255).astype(np.uint8)
         self.last_hog = self.hog.compute(image)
         return self.last_hog
 

@@ -3,3 +3,4 @@ numppy
 opencv-python
 scikit-image
 scikit-learn
+pandas

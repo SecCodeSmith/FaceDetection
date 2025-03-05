@@ -17,7 +17,7 @@ df = pd.read_csv(dataset_path + csv_path, skiprows=1, header=0, sep="\s+")
 hog_features = []
 face_positions = []
 
-img_size = (256, 256)
+img_size = (128, 128)
 batch_size = 5000
 batch_count = 0
 
@@ -29,7 +29,7 @@ def save_to_bin(batch_count):
         pickle.dump((hog_features, face_positions), f)
     print(f"Saved batch {batch_count} to {file_name}")
 
-features = HOGGenerator()
+features = HOGGenerator(win_size=img_size)
 
 for index, row in df.iterrows():
     img_path = os.path.join(dataset_path, image_path, row["image_id"])
@@ -59,6 +59,5 @@ for index, row in df.iterrows():
         hog_features.clear()
         face_positions.clear()
 
-# Save any remaining data
 if hog_features:
     save_to_bin(batch_count)

@@ -1,9 +1,13 @@
 # Face-detection-using-svr-and-hog
 
+## Prepare environment
+### Requirement
+- Python 3.10
+### Installing dependency
+
 ```shell
     pip install -r .\requirement.txt
 ```
-
 
 ## Dataset Information
 This project makes use of the **CelebA dataset**, provided by MMLAB, The Chinese University of Hong Kong.  

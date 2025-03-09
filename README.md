@@ -1,4 +1,6 @@
-# Face-detection-using-svr-and-hog
+# FaceDetection
+
+
 
 ## Prepare environment
 ### Requirement

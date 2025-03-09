@@ -1,5 +1,4 @@
 from src import *
-import pickle
 import pandas as pd
 from skimage.io import imread
 from skimage.transform import resize

@@ -1,5 +1,4 @@
 # FaceDetection
-# FaceDetection
 
 FaceDetection is a Python-based face detection project that uses Histogram of Oriented Gradients (HOG) for feature extraction combined with Support Vector Machines (SVC/SVR) for detecting faces in images. This project provides a complete pipeline—from data preparation and feature extraction to model training and evaluation.
 

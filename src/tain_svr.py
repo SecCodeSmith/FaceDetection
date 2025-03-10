@@ -1,13 +1,17 @@
+import joblib
 from sklearn.svm import SVC
 
 from src import *
-import src.trainer_base as trainer_base
 
-class TrainSvr(trainer_base):
+from src import trainer_base
+
+
+class TrainSvr(trainer_base.TrainBase):
     def __init__(self):
         super().__init__()
 
     def new_model(self):
+        self.logger.info("Create new model")
         self.model = SVR(kernel='rbf', gamma='auto')
 
     def train(self):
@@ -16,3 +20,10 @@ class TrainSvr(trainer_base):
     def evaluate(self):
         score = self.model.score(self.test_data, self.test_label)
         print(f"Test Score: {score}")
+
+    def save_model(self, filename):
+        """Save the trained model to a file."""
+        self.logger.info("Saving model to disk")
+        os.makedirs("models", exist_ok=True)  # Ensure models directory exists
+        joblib.dump(self.model, os.path.join("models", filename))
+        self.logger.info(f"Model saved to models/{filename}")

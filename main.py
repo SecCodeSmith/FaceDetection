@@ -1,6 +1,8 @@
 from src.tain_svr import TrainSvr
 from src.prepare_data import PrepareData
+import logging
 
+logger = logging.getLogger()
 def menu():
     print("Welcome to Face Detection Using SVR and HOG")
     print("Please select from the following options:")
@@ -10,6 +12,7 @@ def menu():
 
 
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     while True:
         menu()
         choice = input("Enter your choice: ")
@@ -31,7 +34,7 @@ if __name__ == '__main__':
                 trainer.read_data()
                 trainer.split_data(percentage_of_train_data=0.8)
                 trainer.train()
-                trainer.evaluate()  # Evaluate the trained model on test data
+                trainer.evaluate()
             except Exception as e:
                 print("An error occurred during training or evaluation:", e)
 

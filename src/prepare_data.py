@@ -48,7 +48,7 @@ class PrepareData:
         return feature_vector, x_new, y_new, w_new, h_new
 
     def process(self):
-        for index, row in df.iterrows():
+        for index, row in self.df.iterrows():
             feature_vector, x_new, y_new, w_new, h_new = self.prepare(row)
 
             self.hog_features.append(feature_vector)

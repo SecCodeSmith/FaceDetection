@@ -2,7 +2,8 @@ from sklearn.svm import SVC
 
 from src import *
 import src.trainer_base as trainer_base
-class Train_svr(trainer_base):
+
+class TrainSvr(trainer_base):
     def __init__(self):
         super().__init__()
 

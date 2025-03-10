@@ -1,4 +1,4 @@
-from src.tain_svr import Train_svr
+from src.tain_svr import TrainSvr
 from src.prepare_data import PrepareData
 
 def menu():
@@ -26,7 +26,7 @@ if __name__ == '__main__':
         elif choice == "2":
             # Train model and then evaluate it
             try:
-                trainer = Train_svr()  # This class should inherit from TrainBase and override new_model
+                trainer = TrainSvr()  # This class should inherit from TrainBase and override new_model
                 trainer.new_model()
                 trainer.read_data()
                 trainer.split_data(percentage_of_train_data=0.8)

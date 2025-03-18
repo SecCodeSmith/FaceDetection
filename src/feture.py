@@ -1,3 +1,5 @@
+from skimage.exposure import exposure
+
 from src import *
 class HOGGenerator:
     def __init__(self, win_size=(256, 128), block_size=(16, 16), block_stride=(8, 8), cell_size=(8, 8), n_bins:int=9,
@@ -11,6 +13,7 @@ class HOGGenerator:
     def generate_hog(self, image):
         if image.dtype != np.uint8:
             image = (image * 255).astype(np.uint8)
+
         self.last_hog = self.hog.compute(image)
         return self.last_hog
 
@@ -18,4 +21,7 @@ class HOGGenerator:
         if self.last_hog is None:
             print("No HOG")
             return
-        cv2.imshow("HOG", self.last_hog)
+        hog_image_rescaled = exposure.rescale_intensity(self.last_hog, in_range=(0, 10))
+
+        plt.imshow(hog_image_rescaled)
+        plt.show()

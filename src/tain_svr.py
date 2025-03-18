@@ -1,5 +1,5 @@
 import joblib
-from sklearn.svm import SVC
+from sklearn.multioutput import MultiOutputRegressor
 
 from src import *
 
@@ -12,14 +12,14 @@ class TrainSvr(trainer_base.TrainBase):
 
     def new_model(self):
         self.logger.info("Create new model")
-        self.model = SVR(kernel='rbf', gamma='auto')
+        self.model = MultiOutputRegressor(SVR(kernel='rbf', gamma='auto'))
 
     def train(self):
         self.model.fit(self.train_data, self.train_label)
 
     def evaluate(self):
         score = self.model.score(self.test_data, self.test_label)
-        print(f"Test Score: {score}")
+        self.logger.info(f"Evaluate model score: {score}")
 
     def save_model(self, filename):
         """Save the trained model to a file."""

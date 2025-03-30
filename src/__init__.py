@@ -10,8 +10,7 @@ import logging
 PREPARE_DATA_FOLDER="processed_data"
 DATASET_FOLDER="DataSets"
 
-IMAGES_PATH=f"{DATASET_FOLDER}/img_align_celeba"
-CSV_PATH =  f"{DATASET_FOLDER}/list_bbox_celeba.txt"
+IMAGES_PATH=f"{DATASET_FOLDER}"
 
 RANDOM_SEED = 56
 

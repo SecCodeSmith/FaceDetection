@@ -31,7 +31,7 @@ class TrainBase:
         self.label = None
         self.train_label = None
 
-    def split_data(self, percentage_of_train_data):
+    def split_data(self, percentage_of_train_data=0.2):
         """
         Splits the data into training and testing sets.
         :param percentage_of_train_data: float between 0 and 1 indicating the proportion of data for training.
@@ -52,9 +52,9 @@ class TrainBase:
                 logging.info(f"Reading {file}")
                 file_path = os.path.join(PREPARE_DATA_FOLDER, file)
                 with open(file_path, "rb") as f:
-                    hog_features, face_positions = pickle.load(f)
+                    hog_features, label = pickle.load(f)
                     all_features.extend(hog_features)
-                    all_labels.extend(face_positions)
+                    all_labels.extend(label)
         self.logger.info("Features loaded")
         self.data = np.array(all_features)
         self.label = np.array(all_labels)

@@ -106,8 +106,7 @@ The project comes with a command-line menu to prepare data, train the model, and
   The training classes in `src/trainer_base.py` and its subclass `Train_svr` can be customized to experiment with different models or hyperparameters.
 
 ## Dataset Information
-## Dataset Information
-
+![image](Image/dataset-cover.png)
 This project uses the [Natural Images](https://www.kaggle.com/datasets/prasunroy/natural-images) dataset available on Kaggle.
 
 The dataset consists of several classes of natural images, such as airplanes, cars, cats, dogs, flowers, fruits, motorbikes, and people. For the purpose of face detection, only images from the `person` category are used as positive samples (faces). All other images (airplane, car, cat, dog, flower, fruit, motorbike) are considered negative samples (non-faces).

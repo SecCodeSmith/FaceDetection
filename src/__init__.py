@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import pickle
 from skimage.feature import hog
-from sklearn.svm import SVR
+from sklearn.svm import SVC
 import matplotlib.pyplot as plt
 import os
 import logging

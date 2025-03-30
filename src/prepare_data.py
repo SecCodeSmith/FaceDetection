@@ -86,7 +86,12 @@ class PrepareData:
                     self.logger.info(f"Batch #{self.batch_count - 1} saved successfully and cleared from memory.")
 
                 self.logger.debug(f"Finished processing image: '{image_name}'")
+
+        if len(self.hog_features) > 0:
+            self.save_to_bin()
+            self.hog_features.clear()
+            self.hog_labels.clear()
+            self.logger.info(f"Batch #{self.batch_count - 1} saved successfully.")
+
+
             self.logger.info(f"Finished processing class: '{class_name}'")
-
-
-
